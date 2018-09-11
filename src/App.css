@@ -1,6 +1,6 @@
-html, 
+html,
 body {
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 h1 {
@@ -49,10 +49,28 @@ p {
 }
 
 .star:before {
-  color: #FFC300;
-  content: '\2605'; 
+  color: #ffc300;
+  content: "\2605";
   overflow: hidden;
   position: absolute;
+}
+
+.stars {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stars > li {
+  display: inline-block;
+}
+
+.star-gold {
+  color: gold;
+}
+
+.star-grey {
+  color: grey;
 }
 
 .features {
@@ -67,15 +85,16 @@ p {
   float: right;
 }
 
-.colour-options, .capacity-options {
+.colour-options,
+.capacity-options {
   margin-bottom: 5em;
   margin-top: 2em;
   width: 50%;
 }
 
-button { 
-  border: 1px solid #B8B7B8;
-  border-radius: .8em;
+button {
+  border: 1px solid #b8b7b8;
+  border-radius: 0.8em;
   height: 4em;
   margin: 25px 2px 25px 0;
   text-align: center;
@@ -83,9 +102,9 @@ button {
   width: 4em;
 }
 
-button:active, 
-button:checked, 
-button:focus, 
+button:active,
+button:checked,
+button:focus,
 button:hover {
   box-shadow: 0 0 0 1.5pt #068985;
   -moz-box-shadow: 0 0 0 1.5pt #068985;
@@ -93,11 +112,11 @@ button:hover {
 }
 
 .button-gold {
-  background-image: linear-gradient(#FAE4DE, #FCE8E2, #C9C7C9); 
+  background-image: linear-gradient(#fae4de, #fce8e2, #c9c7c9);
 }
 
 .button-silver {
-  background-image: linear-gradient(#EEEFF0, #E2E2E3, #ADACAC); 
+  background-image: linear-gradient(#eeeff0, #e2e2e3, #adacac);
 }
 
 .button-space-grey {
@@ -111,7 +130,7 @@ button:hover {
 }
 
 .button-gigs {
-  background-color: #EDEDED;
+  background-color: #ededed;
   color: #525252;
   font-size: 1em;
   font-weight: 100;
@@ -119,35 +138,39 @@ button:hover {
   width: 3em;
 }
 
-table, .pricing-options {
-  background-color: #F4F4F4;
+table,
+.pricing-options {
+  background-color: #f4f4f4;
   height: 9em;
   width: 37em;
 }
 
-.table-top, .table-bottom {
+.table-top,
+.table-bottom {
   height: 1.5em;
   width: 70em;
 }
 
-tr, td {
+tr,
+td {
   line-height: 2em;
   padding: 0 2em 0 2em;
 }
 
 .vertical-line {
-  border-right: 1px solid #ddd; 
+  border-right: 1px solid #ddd;
 }
 
-.upfront-cost, .monthly-cost {
-  font-family: 'Raleway', sans-serif;
+.upfront-cost,
+.monthly-cost {
+  font-family: "Raleway", sans-serif;
   color: red;
   font-size: 1.8em;
   font-weight: 600;
 }
 
 /* Firefox specifics */
-@-moz-document url-prefix() { 
+@-moz-document url-prefix() {
   .star {
     font-size: 1.5em;
     line-height: 1.5em;

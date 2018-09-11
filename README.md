@@ -22,7 +22,7 @@ All I needed was to overwrite git config settings in the command line, like such
 and **voila!** - life is beautiful again.  
 
 **Tuesday Update:**  
-Found a fantastic [React testing course on Udemy](https://www.udemy.com/react-testing/) which I breezed through in the afternoon. Can finally move onto TDD'ing. :raised-hands:
+Found a fantastic [React testing course on Udemy](https://www.udemy.com/react-testing/) which I breezed through in the afternoon. Can finally move onto TDD'ing React! :raised-hands:
  
 Instead of building React on top of my existing git repository, I made a new `create-react-app` directory and copied my designs in there, so my first git commit here reflects the first passing test in Enzyme.  
 My reason for doing so is to have a plan B: to keep the integrity of my original static project intact without having to make it public and push it to GitHub before the test is due.  
