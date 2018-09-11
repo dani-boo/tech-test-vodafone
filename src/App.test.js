@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import App from './App';
 
 describe('App', () => {
   let app = mount(<App />);
+  let app2 = shallow(<App />);
   let chosenColour = 'Space Grey';
+  let chosenCapacity = '64';
 
   it('has a phone image section', () => {
     expect(app.find('.phone-image-section').exists()).toBe(true);
@@ -39,18 +42,30 @@ describe('App', () => {
     expect(app.find('p').at(0).text()).toEqual('All-glass design, advanced cameras, wireless charging and a smart A11 Bionic chip. Intelligence never looked better.');
   });
 
+  it('has a features div', () => {
+    expect(app.find('.features').exists()).toBe(true);
+  })
+
   it('has a colour options div', () => {
     expect(app.find('.colour-options').exists()).toBe(true);
   })
 
   it('renders a colour label', () => {
-    expect(app.find('label').text()).toEqual(`Colour: ${chosenColour}`);
+    expect(app.find('label').at(0).text()).toEqual(`Colour: ${chosenColour}`);
   })
 
   it('renders 3 colour options as buttons', () => {
     expect(app.find('.button-gold').exists()).toBe(true);
     expect(app.find('.button-silver').exists()).toBe(true);
     expect(app.find('.button-space-grey').exists()).toBe(true);
+  })
+
+  it('has a capacity options div', () => {
+    expect(app.find('.capacity-options').exists()).toBe(true);
+  })
+
+  it('renders a capacity label', () => {
+    expect(app.find('label').at(1).text()).toEqual(`Capacity: ${chosenCapacity}`);
   })
 
   it('renders without crashing', () => {

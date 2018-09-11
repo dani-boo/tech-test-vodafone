@@ -6,6 +6,7 @@ import "./App.css";
 // Remove this
 const userRating = 5;
 const chosenColour = "Space Grey";
+const chosenCapacity = "64";
 
 class App extends Component {
   render() {
@@ -29,17 +30,33 @@ class App extends Component {
             All-glass design, advanced cameras, wireless charging and a smart A11 Bionic chip.
             Intelligence never looked better.
           </p>
-          <div className="colour-options">
-            <label>
-              Colour: <strong className="bold-text">{chosenColour}</strong>
-            </label>
-            <br />
+          <div className="features">
+            <div className="colour-options">
+              <label>
+                Colour: <strong className="bold-text">{chosenColour}</strong>
+              </label>
+              <br />
+              <span>
+                <button className="button button-gold" />
+                <button className="button button-silver" />
+                <button className="button button-space-grey" />
+              </span>
+            </div>
+            <div className="capacity-options">
+              <label>
+                Capacity: <strong>{chosenCapacity}</strong>
+              </label>
+              <br />
+              <span>
+                <button className="button button-gigs" id="64">
+                  64
+                </button>
+                <button className="button button-gigs" id="256">
+                  256
+                </button>
+              </span>
+            </div>
           </div>
-          <span>
-            <button className="button button-gold" />
-            <button className="button button-silver" />
-            <button className="button button-space-grey" />
-          </span>
         </section>
       </div>
     );
