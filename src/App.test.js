@@ -10,6 +10,10 @@ describe('App', () => {
     expect(app.find('h1').text()).toEqual('Apple iPhone 8');
   })
 
+  it('renders the phone image', () => {
+    expect(app.find('.phone-image').exists()).toBe(true);
+  })
+
   it('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);

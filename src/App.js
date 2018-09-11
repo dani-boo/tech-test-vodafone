@@ -11,9 +11,6 @@ class App extends Component {
       <img src={image} className="phone-image" alt="iPhone 8 Space Grey" /></section>
       <section className="phone-content-section">
       <h1>Apple iPhone 8</h1>  
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
       </section>
     </div>
     );
