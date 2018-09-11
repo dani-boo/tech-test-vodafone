@@ -12,6 +12,14 @@ class App extends Component {
       <section className="phone-content-section">
       <h1>Apple iPhone 8</h1>  
       </section>
+      <section className="phone-content-section">
+        <span className="star">☆</span>
+        <span className="star">☆</span>
+        <span className="star">☆</span>
+        <span className="star">☆</span>
+        <span className="star">☆</span>
+        <p>All-glass design, advanced cameras, wireless charging and a smart A11 Bionic chip. Intelligence never looked better.</p>
+      </section>
     </div>
     );
   }
