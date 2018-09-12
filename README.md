@@ -1,10 +1,13 @@
 # VODAFONE TECH TEST
 
-A small interactive front end app built with React, a JS library I had never touched before. ![react logo](./public/favicon.ico "React").
+A small interactive front end app built with React, a JS library I had never touched before. 
+
+
+![react logo](./public/favicon.ico "React").
 
 I had far too much fun with this.
 
-###How to run###
+##How to run
 
 **Install:**
 
