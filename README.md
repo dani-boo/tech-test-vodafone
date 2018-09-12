@@ -5,9 +5,9 @@ A small interactive front end app built with React, a JS library I had never tou
 
 ![react logo](./public/favicon.ico "React").
 
-I had far too much fun with this.
+I had far too much fun with this. Fully TDD (until Wednesday, when I had to learn React components fast; still wrote tests though.)
 
-##How to run
+## How to run
 
 **Install:**
 
@@ -17,8 +17,9 @@ I had far too much fun with this.
 **Run:**
 
 - in the console type `cd vodafone-tech-test`
-- run `npm start`  
-  **Tests:**
+- run `npm start` or `yarn start`  
+
+**Tests:**
 - run `yarn test` or `npm test`
 - run `yarn test --coverage` or `npm test -- --coverage`
 
@@ -50,7 +51,7 @@ I had far too much fun with this.
 
 **Weekend Progress:**
 
-Did the layout and styling according to HTML and CSS best standards (learnt quite a lot in the process). Started reading up on React.
+Did the layout and styling according to HTML and CSS best standards (learnt quite a lot in the process). Started reading up on React. The user stories were minute, and covered by the specs and tests (proof is in the test coverage).
 
 Encountered _this_ little Windows vs Mac issue during my first git commit:  
 `fatal: CRLF would be replaced by LF in src/phones.json`  
