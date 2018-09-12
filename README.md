@@ -25,7 +25,10 @@ I had far too much fun with this. Fully TDD (until Wednesday, when I had to lear
 - run `yarn test --coverage` or `npm test -- --coverage`
 
 **The original spec:**  
-![](http://res.cloudinary.com/dani-devs-and-designs/image/upload/v1536769130/page_sbzefj.jpg)
+![](http://res.cloudinary.com/dani-devs-and-designs/image/upload/v1536769130/page_sbzefj.jpg)  
+
+
+*NOTE THE PRICEY UPFRONT COST IN THE ORIGINAL SPEC. THERE WAS QUITE A DIFFERENCE BETWEEN THAT AND THE REAL DATA IN THE PHONES.JSON FILE*  
 
 **The finished product:**  
 ![](http://res.cloudinary.com/dani-devs-and-designs/image/upload/v1536769032/Screen_Shot_2018-09-12_at_17.16.39_goaj7a.png)
@@ -66,7 +69,7 @@ I tried to be sneaky and snatch Vodafone's own fonts (.woff and .woff2) files fr
 
 **Tuesday Update:**
 
-Found a fantastic [React testing course on Udemy](https://www.udemy.com/react-testing/) which I breezed through in the afternoon. Can finally move onto TDD'ing React! :raised-hands:
+Found a fantastic [React testing course on Udemy](https://www.udemy.com/react-testing/) which I breezed through in the afternoon. Can finally move onto TDD'ing React!  
 
 Instead of building React on top of my existing git repository, I made a new `create-react-app` directory and copied my designs in there, so my first git commit here reflects the first passing test in Enzyme.  
 My reason for doing so is to have a plan B: to keep the integrity of my original static project intact without having to make it public and push it to GitHub before the test is due.  
