@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import PhoneImage from "./PhoneImage";
 import Ratings from "./Ratings";
-import PhoneColours from "./PhoneColours";
+import PhoneColours, { colourOptionsShape } from "./PhoneColours";
 import Capacity from "./Capacity";
 import Pricing, { priceInfoShape } from "./Pricing";
 import "../App.css";
@@ -40,7 +40,7 @@ class App extends Component {
   };
 
   render() {
-    const { phoneName, rating } = this.props;
+    const { colourOptions, memoryOptions, phoneName, rating } = this.props;
     const { selectedPhone, colourName, memory } = this.state;
     return (
       <div>
@@ -53,8 +53,16 @@ class App extends Component {
           <Ratings rating={rating} />
           <p>{selectedPhone.displayDescription}</p>
           <div className="features">
-            <PhoneColours selected={colourName} />
-            <Capacity selected={memory} />
+            <PhoneColours
+              colourOptions={colourOptions}
+              selected={colourName}
+              onSelect={this.chooseColour}
+            />
+            <Capacity
+              memoryOptions={memoryOptions}
+              selected={memory}
+              onSelect={this.chooseCapacity}
+            />
             <Pricing priceInfo={selectedPhone.priceInfo} />
           </div>
         </section>
@@ -66,6 +74,8 @@ class App extends Component {
 App.propTypes = {
   rating: PropTypes.number.isRequired,
   phoneName: PropTypes.string.isRequired,
+  colourOptions: colourOptionsShape,
+  memoryOptions: PropTypes.arrayOf(PropTypes.string).isRequired,
   phones: PropTypes.arrayOf(
     PropTypes.shape({
       deviceId: PropTypes.string.isRequired,

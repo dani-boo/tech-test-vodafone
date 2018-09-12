@@ -1,23 +1,33 @@
-import React, { Component } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 
-const chosenColour = "Space Grey";
+const PhoneColours = ({ colourOptions, selected, onSelect }) => (
+  <div className="colour-options">
+    <label htmlFor="Colour options: ">
+      Colour: <strong className="bold-text">{selected}</strong>
+    </label>
+    <br />
+    {colourOptions.map(colour => (
+      <button
+        key={colour.colourName}
+        className={`button ${selected === colour.colourName ? "selected" : ""}`}
+        style={{ backgroundColor: colour.colourHex }}
+        onClick={() => onSelect(colour.colourName)}
+      />
+    ))}
+  </div>
+);
 
-class PhoneColours extends Component {
-  render() {
-    return (
-      <div className="colour-options">
-        <label htmlFor="Colour options: ">
-          Colour: <strong className="bold-text">{chosenColour}</strong>
-        </label>
-        <br />
-        <span onChange={event => this.setState({ colour: event.target.value })}>
-          <button className="button button-gold" onClick={() => this.chooseColour()} />
-          <button className="button button-silver" onClick={() => this.chooseColour()} />
-          <button className="button button-space-grey" onClick={() => this.chooseColour()} />
-        </span>
-      </div>
-    );
-  }
-}
+export const colourOptionsShape = PropTypes.arrayOf(
+  PropTypes.shape({
+    colourName: PropTypes.string.isRequired,
+    colourHex: PropTypes.string.isRequired,
+  })
+).isRequired;
+
+PhoneColours.propTypes = {
+  colourOptions: colourOptionsShape,
+  onSelect: PropTypes.func.isRequired,
+};
 
 export default PhoneColours;
