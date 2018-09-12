@@ -3,7 +3,7 @@
 A small interactive front end app built with React, a JS library I had never touched before. 
 
 
-![react logo](./public/favicon.ico "React").
+![react logo](./public/favicon.ico "React")
 
 I had far too much fun with this. Fully TDD (until Wednesday, when I had to learn React components fast; still wrote tests though.)
 
