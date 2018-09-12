@@ -12,6 +12,7 @@ I had far too much fun with this. Fully TDD (until Wednesday, when I had to lear
 **Install:**
 
 - clone this repo
+- cd `tech-test-vodafone`  
 - run `npm install`
 
 **Run:**
@@ -51,7 +52,8 @@ I had far too much fun with this. Fully TDD (until Wednesday, when I had to lear
 
 **Weekend Progress:**
 
-Did the layout and styling according to HTML and CSS best standards (learnt quite a lot in the process). Started reading up on React. The user stories were minute, and covered by the specs and tests (proof is in the test coverage).
+Did the layout and styling according to HTML and CSS best standards (learnt quite a lot in the process). Started reading up on React. The user stories were minute, and covered by the specs and tests (proof is in the test coverage).  
+Basically, I was given a project outline with 3 phone images, a JSON data file, and a jpeg of what the desired outcome should look like. On click, buttons should render the desired data on screen (such as phone images, cost and colour, according to colour and data package choices.)  
 
 Encountered _this_ little Windows vs Mac issue during my first git commit:  
 `fatal: CRLF would be replaced by LF in src/phones.json`  
@@ -59,6 +61,8 @@ which was luckily resolved within seconds thanks to some good Samaritans on [Sta
 All I needed was to overwrite git config settings in the command line, like such:  
 `git config --global core.autocrlf false`  
 and **voila!** - life is beautiful again.
+
+I tried to be sneaky and snatch Vodafone's own fonts (.woff and .woff2) files from their website, but still have a bit to learn on that topic. Google fonts did fine.  
 
 **Tuesday Update:**
 
