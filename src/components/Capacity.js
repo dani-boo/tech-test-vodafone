@@ -6,16 +6,17 @@ const Capacity = ({ selected, onSelect, memoryOptions }) => (
     <label htmlFor="Capacity options: ">
       Capacity: <strong>{selected}</strong>
     </label>
-    <br />
-    {memoryOptions.map(memory => (
-      <button
-        key={memory}
-        className={`button button-gigs ${memory === selected ? "selected" : ""}`}
-        onClick={() => onSelect(memory)}
-      >
-        {parseInt(memory)}
-      </button>
-    ))}
+    <div>
+      {memoryOptions.map(memory => (
+        <button
+          key={memory}
+          className={`button button-gigs ${memory === selected ? "selected" : ""}`}
+          onClick={() => onSelect(memory)}
+        >
+          {parseInt(memory)}
+        </button>
+      ))}
+    </div>
   </div>
 );
 

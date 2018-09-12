@@ -6,15 +6,16 @@ const PhoneColours = ({ colourOptions, selected, onSelect }) => (
     <label htmlFor="Colour options: ">
       Colour: <strong className="bold-text">{selected}</strong>
     </label>
-    <br />
-    {colourOptions.map(colour => (
-      <button
-        key={colour.colourName}
-        className={`button ${selected === colour.colourName ? "selected" : ""}`}
-        style={{ backgroundColor: colour.colourHex }}
-        onClick={() => onSelect(colour.colourName)}
-      />
-    ))}
+    <div>
+      {colourOptions.map(colour => (
+        <button
+          key={colour.colourName}
+          className={`button ${selected === colour.colourName ? "selected" : ""}`}
+          style={{ backgroundColor: colour.colourHex }}
+          onClick={() => onSelect(colour.colourName)}
+        />
+      ))}
+    </div>
   </div>
 );
 

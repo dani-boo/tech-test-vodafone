@@ -63,8 +63,8 @@ class App extends Component {
               selected={memory}
               onSelect={this.chooseCapacity}
             />
-            <Pricing priceInfo={selectedPhone.priceInfo} />
           </div>
+          <Pricing priceInfo={selectedPhone.priceInfo} />
         </section>
       </div>
     );

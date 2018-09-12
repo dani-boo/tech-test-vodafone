@@ -9,10 +9,10 @@ describe("Pricing", () => {
   const currentMonthlyCost = "£43.20";
 
   it("renders the upfront cost", () => {
-    expect(pricing.find(".upfront-cost").text()).toEqual(currentUpfrontCost);
+    expect(pricing.find(".upfront-cost span").text()).toEqual(currentUpfrontCost);
   });
 
   it("renders the monthly cost", () => {
-    expect(pricing.find(".monthly-cost").text()).toEqual(currentMonthlyCost);
+    expect(pricing.find(".monthly-cost span").text()).toEqual(currentMonthlyCost);
   });
 });
