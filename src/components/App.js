@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 import PhoneImage from "./PhoneImage";
-import Ratings from "./Ratings";
+import Ratings, { ratingShape } from "./Ratings";
 import PhoneColours, { colourOptionsShape } from "./PhoneColours";
-import Capacity from "./Capacity";
+import Capacity, { memoryOptionsShape } from "./Capacity";
 import Pricing, { priceInfoShape } from "./Pricing";
 import "../App.css";
 
@@ -72,10 +72,10 @@ class App extends Component {
 }
 
 App.propTypes = {
-  rating: PropTypes.number.isRequired,
+  rating: ratingShape,
   phoneName: PropTypes.string.isRequired,
   colourOptions: colourOptionsShape,
-  memoryOptions: PropTypes.arrayOf(PropTypes.string).isRequired,
+  memoryOptions: memoryOptionsShape,
   phones: PropTypes.arrayOf(
     PropTypes.shape({
       deviceId: PropTypes.string.isRequired,

@@ -1,26 +1,30 @@
-import React, { Component } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 
-const chosenCapacity = "64";
+const Capacity = ({ selected, onSelect, memoryOptions }) => (
+  <div className="capacity-options">
+    <label htmlFor="Capacity options: ">
+      Capacity: <strong>{selected}</strong>
+    </label>
+    <br />
+    {memoryOptions.map(memory => (
+      <button
+        key={memory}
+        className={`button button-gigs ${memory === selected ? "selected" : ""}`}
+        onClick={() => onSelect(memory)}
+      >
+        {parseInt(memory)}
+      </button>
+    ))}
+  </div>
+);
 
-class Capacity extends Component {
-  render() {
-    return (
-      <div className="capacity-options">
-        <label htmlFor="Capacity options: ">
-          Capacity: <strong>{chosenCapacity}</strong>
-        </label>
-        <br />
-        <span onChange={event => this.setState({ capacity: event.target.value })}>
-          <button className="button button-gigs" id="64" onClick={() => this.chooseCapacity()}>
-            64
-          </button>
-          <button className="button button-gigs" id="256" onClick={() => this.chooseCapacity()}>
-            256
-          </button>
-        </span>
-      </div>
-    );
-  }
-}
+export const memoryOptionsShape = PropTypes.arrayOf(PropTypes.string).isRequired;
+
+Capacity.propTypes = {
+  selected: PropTypes.string.isRequired,
+  memoryOptions: memoryOptionsShape,
+  onSelect: PropTypes.func.isRequired,
+};
 
 export default Capacity;

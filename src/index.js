@@ -18,7 +18,8 @@ const colourOptions = uniqueColourValues.map(phone => ({
 }));
 
 const phonesSortedByMemory = sortBy(phones, phone => parseInt(phone.memory));
-const memoryOptions = uniqBy(phonesSortedByMemory, phone => phone.memory);
+const uniqueMemoryValues = uniqBy(phonesSortedByMemory, phone => phone.memory);
+const memoryOptions = uniqueMemoryValues.map(phone => phone.memory);
 
 ReactDOM.render(
   <App

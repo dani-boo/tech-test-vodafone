@@ -26,6 +26,7 @@ export const colourOptionsShape = PropTypes.arrayOf(
 ).isRequired;
 
 PhoneColours.propTypes = {
+  selected: PropTypes.string.isRequired,
   colourOptions: colourOptionsShape,
   onSelect: PropTypes.func.isRequired,
 };
