@@ -96,7 +96,7 @@ button {
   border: 1px solid #b8b7b8;
   border-radius: 0.8em;
   height: 4em;
-  margin: 25px 2px 25px 0;
+  margin: 25px 9px 25px 0;
   text-align: center;
   text-decoration: none;
   width: 4em;
@@ -142,6 +142,7 @@ table,
 .pricing-options {
   background-color: #f4f4f4;
   height: 9em;
+  padding-left: 0;
   width: 37em;
 }
 

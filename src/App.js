@@ -1,9 +1,11 @@
 import React, { Component } from "react";
-// import ReactDOM from 'react-dom';
 import image from "./assets/images/Apple_iPhone_8_Space_Grey_WS2-full-product-front.png";
 import "./App.css";
+// import jsonData from "./phones.json";
 
-// Remove this
+// const loadData = () => JSON.parse(JSON.stringify(jsonData));
+
+const currentProduct = "Apple iPhone 8";
 const userRating = 5;
 const chosenColour = "Space Grey";
 const chosenCapacity = "64";
@@ -18,7 +20,7 @@ class App extends Component {
           <img src={image} className="phone-image" alt="iPhone 8 Space Grey" />
         </section>
         <section className="phone-content-section">
-          <h1>Apple iPhone 8</h1>
+          <h1 title={`Phone on display: ${currentProduct}`}>Apple iPhone 8</h1>
         </section>
         <section className="phone-content-section">
           <ul className="stars" title={`Rated ${userRating} stars`}>
@@ -34,7 +36,7 @@ class App extends Component {
           </p>
           <div className="features">
             <div className="colour-options">
-              <label>
+              <label htmlFor="Colour options: ">
                 Colour: <strong className="bold-text">{chosenColour}</strong>
               </label>
               <br />
@@ -45,7 +47,7 @@ class App extends Component {
               </span>
             </div>
             <div className="capacity-options">
-              <label>
+              <label htmlFor="Capacity options: ">
                 Capacity: <strong>{chosenCapacity}</strong>
               </label>
               <br />

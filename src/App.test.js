@@ -6,10 +6,10 @@ import App from './App';
 
 describe('App', () => {
   let app = mount(<App />);
-  let app2 = shallow(<App />);
+  // let app2 = shallow(<App />);
   let chosenColour = 'Space Grey';
   let chosenCapacity = '64';
-  const currentUpfrontCost = "£1149";
+  let currentUpfrontCost = "£1149";
   let currentMonthlyCost = "£43.20 ";
 
   it('has a phone image section', () => {
