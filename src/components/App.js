@@ -4,8 +4,8 @@ import PropTypes from "prop-types";
 import PhoneImage from "./PhoneImage";
 import Ratings from "./Ratings";
 import PhoneColours from "./PhoneColours";
-import Capacity from "./PhoneColours";
-import Pricing from "./Pricing";
+import Capacity from "./Capacity";
+import Pricing, { priceInfoShape } from "./Pricing";
 import "../App.css";
 
 class App extends Component {
@@ -19,12 +19,24 @@ class App extends Component {
     };
   }
 
+  selectPhone = () => {
+    const { phones } = this.props;
+    this.setState(state => ({
+      selectedPhone:
+        phones.find(
+          phone => phone.colourName === state.colourName && phone.memory === state.memory
+        ) || phones[0],
+    }));
+  };
+
   chooseColour = colourName => {
     this.setState(() => ({ colourName }));
+    this.selectPhone();
   };
 
   chooseCapacity = memory => {
     this.setState(() => ({ memory }));
+    this.selectPhone();
   };
 
   render() {
@@ -32,7 +44,10 @@ class App extends Component {
     const { selectedPhone, colourName, memory } = this.state;
     return (
       <div>
-        <PhoneImage />
+        <PhoneImage
+          src={selectedPhone.merchandisingMedia[0].value}
+          alt={selectedPhone.displayName}
+        />
         <section className="phone-content-section">
           <h1>{phoneName}</h1>
           <Ratings rating={rating} />
@@ -40,7 +55,7 @@ class App extends Component {
           <div className="features">
             <PhoneColours selected={colourName} />
             <Capacity selected={memory} />
-            <Pricing />
+            <Pricing priceInfo={selectedPhone.priceInfo} />
           </div>
         </section>
       </div>
@@ -66,34 +81,7 @@ App.propTypes = {
           value: PropTypes.string.isRequired,
         })
       ),
-      priceInfo: PropTypes.shape({
-        bundlePrice: PropTypes.shape({
-          bundleId: PropTypes.string.isRequired,
-          monthlyPrice: PropTypes.shape({
-            gross: PropTypes.string.isRequired,
-            net: PropTypes.string.isRequired,
-            vat: PropTypes.string.isRequired,
-          }),
-          monthlyDiscountPrice: PropTypes.shape({
-            gross: PropTypes.string,
-            net: PropTypes.string,
-            vat: PropTypes.string,
-          }),
-        }),
-        hardwarePrice: PropTypes.shape({
-          hardwareId: PropTypes.string.isRequired,
-          oneOffPrice: PropTypes.shape({
-            gross: PropTypes.string.isRequired,
-            net: PropTypes.string.isRequired,
-            vat: PropTypes.string.isRequired,
-          }),
-          oneOffDiscountPrice: PropTypes.shape({
-            gross: PropTypes.string,
-            net: PropTypes.string,
-            vat: PropTypes.string,
-          }),
-        }),
-      }),
+      priceInfo: priceInfoShape,
     })
   ).isRequired,
 };
