@@ -1,6 +1,6 @@
 # VODAFONE TECH TEST
 
-A small interactive front end app built with React, a JS library I had never touched before. 
+A small interactive front end app built in five days with React, a JS library I had never touched before. 
 
 
 ![react logo](./public/favicon.ico "React")
@@ -33,9 +33,9 @@ I had far too much fun with this. Fully TDD (until Wednesday, when I had to lear
 **Test Coverage:**
 ![yarn test coverage report](http://res.cloudinary.com/dani-devs-and-designs/image/upload/v1536768043/Screen_Shot_2018-09-12_at_16.58.14_mylnwu.png)
 
-##What I did##
+## What I did
 
-###My Plan:###
+### My Plan:
 
 - Set up project directories
 - Choose stack
