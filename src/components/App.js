@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+
 import PhoneImage from "./PhoneImage";
 import Ratings from "./Ratings";
 import PhoneColours from "./PhoneColours";
@@ -6,50 +8,38 @@ import Capacity from "./PhoneColours";
 import Pricing from "./Pricing";
 import "../App.css";
 
-// import jsonData from "./phones.json";
-
-// const loadData = () => JSON.parse(JSON.stringify(jsonData));
-
-const currentProduct = "Apple iPhone 8";
-const chosenColour = "Space Grey";
-const chosenCapacity = "64";
-
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
-      colour: chosenColour,
-      capacity: chosenCapacity,
+      selectedPhone: props.phones[0],
+      colourName: props.phones[0].colourName,
+      memory: props.phones[0].memory,
     };
   }
 
-  chooseColour() {
-    const { colour } = this.state;
-    this.setState({ colour });
-  }
+  chooseColour = colourName => {
+    this.setState(() => ({ colourName }));
+  };
 
-  chooseCapacity() {
-    const { capacity } = this.state;
-    this.setState({ capacity });
-  }
+  chooseCapacity = memory => {
+    this.setState(() => ({ memory }));
+  };
 
   render() {
+    const { phoneName, rating } = this.props;
+    const { selectedPhone, colourName, memory } = this.state;
     return (
       <div>
         <PhoneImage />
         <section className="phone-content-section">
-          <h1 title={`Phone on display: ${currentProduct}`}>Apple iPhone 8</h1>
-        </section>
-        <section className="phone-content-section">
-          <Ratings />
-          <p>
-            All-glass design, advanced cameras, wireless charging and a smart A11 Bionic chip.
-            Intelligence never looked better.
-          </p>
+          <h1>{phoneName}</h1>
+          <Ratings rating={rating} />
+          <p>{selectedPhone.displayDescription}</p>
           <div className="features">
-            <PhoneColours />
-            <Capacity />
+            <PhoneColours selected={colourName} />
+            <Capacity selected={memory} />
             <Pricing />
           </div>
         </section>
@@ -58,17 +48,54 @@ class App extends Component {
   }
 }
 
-// const { chosenColour, chosenCapacity, currentProduct, userRating, currentUpfrontCost, currentMonthlyCost } = newFunction();
-
-// export default App;
-// function newFunction() {
-//   const currentProduct = "Apple iPhone 8";
-//   const userRating = 5;
-//   const chosenColour = "Space Grey";
-//   const chosenCapacity = "64";
-//   const currentUpfrontCost = "£1149";
-//   const currentMonthlyCost = "£43.20 ";
-//   return { chosenColour, chosenCapacity, currentProduct, userRating, currentUpfrontCost, currentMonthlyCost };
-// }
+App.propTypes = {
+  rating: PropTypes.number.isRequired,
+  phoneName: PropTypes.string.isRequired,
+  phones: PropTypes.arrayOf(
+    PropTypes.shape({
+      deviceId: PropTypes.string.isRequired,
+      displayName: PropTypes.string.isRequired,
+      displayDescription: PropTypes.string.isRequired,
+      colourName: PropTypes.string.isRequired,
+      colourHex: PropTypes.string.isRequired,
+      memory: PropTypes.string.isRequired,
+      leadPlanId: PropTypes.string.isRequired,
+      merchandisingMedia: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.string.isRequired,
+          value: PropTypes.string.isRequired,
+        })
+      ),
+      priceInfo: PropTypes.shape({
+        bundlePrice: PropTypes.shape({
+          bundleId: PropTypes.string.isRequired,
+          monthlyPrice: PropTypes.shape({
+            gross: PropTypes.string.isRequired,
+            net: PropTypes.string.isRequired,
+            vat: PropTypes.string.isRequired,
+          }),
+          monthlyDiscountPrice: PropTypes.shape({
+            gross: PropTypes.string,
+            net: PropTypes.string,
+            vat: PropTypes.string,
+          }),
+        }),
+        hardwarePrice: PropTypes.shape({
+          hardwareId: PropTypes.string.isRequired,
+          oneOffPrice: PropTypes.shape({
+            gross: PropTypes.string.isRequired,
+            net: PropTypes.string.isRequired,
+            vat: PropTypes.string.isRequired,
+          }),
+          oneOffDiscountPrice: PropTypes.shape({
+            gross: PropTypes.string,
+            net: PropTypes.string,
+            vat: PropTypes.string,
+          }),
+        }),
+      }),
+    })
+  ).isRequired,
+};
 
 export default App;
