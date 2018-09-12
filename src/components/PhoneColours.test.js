@@ -1,22 +1,54 @@
-import React from 'react';
-import { mount } from 'enzyme';
-import PhoneColours from './PhoneColours';
+import React from "react";
+import { shallow } from "enzyme";
+import PhoneColours from "./PhoneColours";
+import { colourOptions } from "../data";
 
-describe('colour options', () => {
-  let colours = mount(<PhoneColours />);
-  let chosenColour = "Space Grey";
+describe("colour options", () => {
+  it("calls its `onSelect` prop when a button is clicked", () => {
+    const mockOnSelect = jest.fn();
+    const wrapper = shallow(
+      <PhoneColours
+        colourOptions={colourOptions}
+        selected={colourOptions[0].colourName}
+        onSelect={mockOnSelect}
+      />
+    );
+    wrapper
+      .find(".button")
+      .at(0)
+      .props()
+      .onClick();
+    expect(mockOnSelect).toHaveBeenCalled();
+  });
 
-  it('has a colour options div', () => {
-    expect(colours.find('.colour-options').exists()).toBe(true);
-  })
-
-  it('renders a colour label', () => {
-    expect(colours.find('label').text()).toEqual(`Colour: ${chosenColour}`);
-  })
-
-  it('renders 3 colour options as buttons', () => {
-    expect(colours.find('.button-gold').exists()).toBe(true);
-    expect(colours.find('.button-silver').exists()).toBe(true);
-    expect(colours.find('.button-space-grey').exists()).toBe(true);
-  })
-})
+  it("highlights the button for the currently selected colour", () => {
+    const wrapper = shallow(
+      <PhoneColours
+        colourOptions={colourOptions}
+        selected={colourOptions[1].colourName}
+        onSelect={() => {}}
+      />
+    );
+    expect(
+      wrapper
+        .find(".button")
+        .at(0)
+        .props()
+        .className.includes("selected")
+    ).toEqual(false);
+    expect(
+      wrapper
+        .find(".button")
+        .at(1)
+        .props()
+        .className.includes("selected")
+    ).toEqual(true);
+    expect(
+      wrapper
+        .find(".button")
+        .at(2)
+        .props()
+        .className.includes("selected")
+    ).toEqual(false);
+  });
+});

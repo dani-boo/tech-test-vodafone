@@ -1,21 +1,39 @@
-import React from 'react';
-import { mount } from 'enzyme';
-import Capacity from './Capacity';
+import React from "react";
+import { shallow } from "enzyme";
+import Capacity from "./Capacity";
+import { memoryOptions } from "../data";
 
-describe('capacity options', () => {
-  let capacity = mount(<Capacity />);
-  let chosenCapacity = '64';
+describe("capacity options", () => {
+  it("calls its `onSelect` prop when a button is clicked", () => {
+    const mockOnSelect = jest.fn();
+    const wrapper = shallow(
+      <Capacity selected={memoryOptions[0]} onSelect={mockOnSelect} memoryOptions={memoryOptions} />
+    );
+    wrapper
+      .find(".button")
+      .at(0)
+      .props()
+      .onClick();
+    expect(mockOnSelect).toHaveBeenCalled();
+  });
 
-  it('has a capacity options div', () => {
-    expect(capacity.find('.capacity-options').exists()).toBe(true);
-  })
-
-  it('renders a capacity label', () => {
-    expect(capacity.find('label').text()).toEqual(`Capacity: ${chosenCapacity}`);
-  })
-
-  it('renders 2 capacity options as buttons', () => {
-    expect(capacity.find('.button-gigs').at(0).exists()).toBe(true);
-    expect(capacity.find('.button-gigs').at(1).exists()).toBe(true);
-  })
-})
+  it("highlights the button for the currently selected capacity", () => {
+    const wrapper = shallow(
+      <Capacity selected={memoryOptions[1]} onSelect={() => ""} memoryOptions={memoryOptions} />
+    );
+    expect(
+      wrapper
+        .find(".button")
+        .at(0)
+        .props()
+        .className.includes("selected")
+    ).toEqual(false);
+    expect(
+      wrapper
+        .find(".button")
+        .at(1)
+        .props()
+        .className.includes("selected")
+    ).toEqual(true);
+  });
+});

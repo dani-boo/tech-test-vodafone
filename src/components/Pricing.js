@@ -1,9 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const currentUpfrontCost = "£1149";
-const currentMonthlyCost = "£43.20 ";
-
 const Pricing = ({ priceInfo }) => (
   <div>
     <table className="table">
