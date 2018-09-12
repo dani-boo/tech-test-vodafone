@@ -17,7 +17,6 @@ I had far too much fun with this. Fully TDD (until Wednesday, when I had to lear
 
 **Run:**
 
-- in the console type `cd vodafone-tech-test`
 - run `npm start` or `yarn start`  
 
 **Tests:**
